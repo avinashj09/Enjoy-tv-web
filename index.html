@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07090d">
+<title>EnjoyTV</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brandMark">▶</span> Enjoy<span>TV</span></div>
+  <button id="searchBtn" class="iconBtn" aria-label="Search">⌕</button>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="heroGlow"></div>
+    <div class="heroText">
+      <div class="eyebrow">ENJOYTV ORIGINAL EXPERIENCE</div>
+      <h1>Everything you<br><span>love to watch.</span></h1>
+      <p>Live channels, playlists and your personal library — all in one place.</p>
+      <button id="browseBtn" class="primary">▶ Browse Channels</button>
+    </div>
+  </section>
+
+  <section id="playerSection" class="playerWrap hidden">
+    <div class="playerCard">
+      <video id="player" controls playsinline></video>
+      <div class="playerInfo">
+        <div><strong id="nowTitle">Nothing playing</strong><small id="nowGroup"></small></div>
+        <button id="closePlayer" class="ghost">Close</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sectionHead">
+      <h2>Quick Access</h2>
+      <button id="addBtn" class="textBtn">+ Add Playlist</button>
+    </div>
+    <div class="quickGrid">
+      <button class="quick" data-filter="all"><b>📺</b><span>Live TV</span><small id="channelCount">0 channels</small></button>
+      <button class="quick" data-filter="fav"><b>♥</b><span>Favorites</span><small id="favCount">0 saved</small></button>
+      <button class="quick" data-filter="recent"><b>↻</b><span>Recently Watched</span><small id="recentCount">0 items</small></button>
+    </div>
+  </section>
+
+  <section id="channels" class="section">
+    <div class="sectionHead">
+      <h2 id="channelHeading">Live Channels</h2>
+      <div class="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="fav">♥</button>
+      </div>
+    </div>
+    <div id="channelGrid" class="channelGrid"></div>
+    <div id="empty" class="empty hidden">No channels yet.<br>Add an M3U playlist to get started.</div>
+  </section>
+</main>
+
+<nav class="bottomNav">
+  <button class="nav active" data-filter="all"><span>⌂</span>Home</button>
+  <button class="nav" id="navLive"><span>▣</span>Live</button>
+  <button class="nav" id="navSearch"><span>⌕</span>Search</button>
+  <button class="nav" id="navSettings"><span>⚙</span>Settings</button>
+</nav>
+
+<div id="modal" class="modal hidden">
+  <div class="sheet">
+    <button id="modalClose" class="modalClose">×</button>
+    <h2>Add M3U Playlist</h2>
+    <p>Paste a public M3U/M3U8 playlist URL. The playlist stays in this browser.</p>
+    <input id="m3uUrl" placeholder="https://example.com/playlist.m3u" inputmode="url">
+    <button id="loadPlaylist" class="primary wide">Load Playlist</button>
+    <div id="loadStatus" class="status"></div>
+  </div>
+</div>
+
+<div id="searchModal" class="modal hidden">
+  <div class="sheet">
+    <button id="searchClose" class="modalClose">×</button>
+    <h2>Search EnjoyTV</h2>
+    <input id="searchInput" placeholder="Search channels..." autofocus>
+    <div id="searchResults" class="searchResults"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
